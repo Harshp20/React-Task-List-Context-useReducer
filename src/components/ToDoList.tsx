@@ -1,7 +1,8 @@
 import React, { useState, FormEvent, useEffect } from 'react'
 import { actions } from '../actions/actions'
 import { useToDoDispatch, useToDoList, useEditToDo } from '../contexts/ToDoContext'
-import ToDo from './ToDo'
+import ToDo from './ToDo/ToDo'
+import Button from 'react-bootstrap/Button'
 
 export default function ToDoList() {
     const [title, setTitle] = useState('')
@@ -29,8 +30,8 @@ export default function ToDoList() {
             <form style={{ display: 'inline' }} onSubmit={(e) => handleSubmit(e)}>
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
             </form>
-            {!editToDo && <button onClick={() => toDoDispatch({ type: actions.ADD, payload: title })}>+ Add</button>}
-            {editToDo ? <button onClick={() => toDoDispatch({ type: actions.ADD, payload: title })}>Update</button> : null}
+            {!editToDo && <Button size='sm' variant='dark' onClick={() => toDoDispatch({ type: actions.ADD, payload: title })}>+ Add</Button>}
+            {editToDo ? <Button size='sm' onClick={() => toDoDispatch({ type: actions.ADD, payload: title })}>Update</Button> : null}
             <ToDo />
         </div>
     )
