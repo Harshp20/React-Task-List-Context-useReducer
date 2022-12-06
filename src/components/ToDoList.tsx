@@ -30,7 +30,7 @@ export default function ToDoList() {
             <form style={{ display: 'inline' }} onSubmit={(e) => handleSubmit(e)}>
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
             </form>
-            {!editToDo && <Button size='sm' variant='dark' onClick={() => toDoDispatch({ type: actions.ADD, payload: title })}>+ Add</Button>}
+            {!editToDo ? <Button size='sm' variant='dark' onClick={() => toDoDispatch({ type: actions.ADD, payload: title })}>+ Add</Button> : null}
             {editToDo ? <Button size='sm' onClick={() => toDoDispatch({ type: actions.ADD, payload: title })}>Update</Button> : null}
             <ToDo />
         </div>

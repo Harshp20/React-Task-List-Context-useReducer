@@ -17,14 +17,12 @@ export default function ToDo() {
             {toDoList.map(todo => (
                 <div
                     key={todo.id}
-                    className={todo.status ? 'border_complete' : 'border_incomplete'}
+                    className={`todo ${todo.status ? 'complete' : 'incomplete'}`}
                     style={{ cursor: 'pointer', marginTop: '1rem', borderRadius: '0.25em' }}
                     onDoubleClick={() => toDoDispatch({ type: actions.TOGGLE, payload: todo.id })}
                 >
                     <div className="todo" style={{ marginLeft: '0.3rem' }}>
-                        <div style={{ color: 'blue' }} >{todo.id}</div>
                         <div><strong>{todo.title}</strong></div>
-                        {todo.status ? <div style={{ color: 'green' }}>Completed</div> : <div style={{ color: 'red' }}>Incomplete</div>}
                         <Button size='sm' onClick={() => handleEdit(todo.id)}>
                             Edit
                         </Button>

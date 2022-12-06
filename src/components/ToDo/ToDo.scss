@@ -1,7 +1,12 @@
-.border_incomplete {
+:root {
+    -webkit-user-select: none;
+}
+
+.incomplete {
     border-left: 4px solid red
 }
 
-.border_complete {
-    border-left: 4px solid green
+.complete {
+    border-left: 4px solid green;
+    text-decoration: line-through;
 }
